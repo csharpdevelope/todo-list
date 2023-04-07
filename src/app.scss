@@ -1,0 +1,33 @@
+.task-list-app {
+    width: 100%;
+    height: 100vmin;
+    display: flex;
+}
+
+.task-list-app-left-menu {
+    flex: 1;
+}
+
+.task-list-app-menu-dark {
+    background-color: var(--left-right-background);
+}
+
+.task-list-app-menu-white {
+    background-color: var(--left-right-background-white);
+}
+
+.task-list-app-middle-search {
+    flex: 3;
+}
+
+.task-list-app-middle-dark {
+    background-color: var(--middle-background);
+}
+
+.task-list-app-middle-white {
+    background-color: var(--middle-background-white);
+}
+
+.task-list-app-right-account {
+    flex: 1;
+}

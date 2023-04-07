@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react';
+import "./app.scss";
+import { Routes } from 'react-router-dom';
+import { Account, Menus, Search } from './components';
+import { TaskContext } from './store/TaskContext';
 
-function App() {
+const App = () => {
+  const { theme } = useContext(TaskContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='task-list-app'>
+      {/* left */}
+      <div className={`task-list-app-left-menu ${theme === "dark" ? "task-list-app-menu-dark" : "task-list-app-menu-white"}`}>
+        <Menus />
+      </div>
+      {/* middle */}
+      <div className={`task-list-app-middle-search ${theme === "dark" ? "task-list-app-middle-dark" : "task-list-app-middle-white"}`}>
+        <Search />
+        <Routes>
+        </Routes>
+      </div>
+      {/* right */}
+      <div className={`task-list-app-right-account ${theme === "dark" ? "task-list-app-menu-dark" : "task-list-app-menu-white"}`}>
+        <Account />
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
