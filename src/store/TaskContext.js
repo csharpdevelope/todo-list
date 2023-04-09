@@ -9,7 +9,8 @@ const TaskProvider = ({ children }) => {
     }
     const [theme, setTheme] = useState(localStorage.getItem("theme"));
 
-    const setThemeChange = ({ name }) => {
+    const setThemeChange = (name) => {
+        localStorage.setItem("theme", name);
         setTheme(name);
     }
 
