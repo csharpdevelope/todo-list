@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import "./app.scss";
 import { Route, Routes } from 'react-router-dom';
-import { Account, Menus, Search } from './components';
+import { Account, AddModal, Menus, Search } from './components';
 import { TaskContext } from './store/TaskContext';
 import { routes } from './routes';
 
@@ -9,6 +9,7 @@ const App = () => {
   const { theme } = useContext(TaskContext);
   return (
     <div className='task-list-app'>
+      <AddModal />
       {/* left */}
       <div className={`task-list-app-left-menu ${theme === "dark" ? "task-list-app-menu-dark" : "task-list-app-menu-white"}`}>
         <Menus />

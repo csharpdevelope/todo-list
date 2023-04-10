@@ -4,10 +4,12 @@ export const TaskContext = React.createContext();
 
 const TaskProvider = ({ children }) => {
     const [tasks, setTasks] = useState([]);
-    if (localStorage.getItem("theme") === null) {
-        localStorage.setItem("theme", "dark")
-    }
     const [theme, setTheme] = useState(localStorage.getItem("theme"));
+    const [isShowModal, setShowModal] = useState(false);
+
+    if (localStorage.getItem("theme") === null) {
+        localStorage.setItem("theme", "white")
+    }
 
     const setThemeChange = (name) => {
         localStorage.setItem("theme", name);
@@ -16,9 +18,11 @@ const TaskProvider = ({ children }) => {
 
     return <TaskContext.Provider value={{
         tasks,
-        setTasks,
         theme,
-        setThemeChange
+        setTasks,
+        setThemeChange,
+        isShowModal,
+        setShowModal
     }}>{children}</TaskContext.Provider>
 }
 export default TaskProvider;

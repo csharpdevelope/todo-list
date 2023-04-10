@@ -7,15 +7,18 @@ const Account = () => {
   const { theme, setThemeChange } = useContext(TaskContext);
 
   return (
-    <div className='todo-list-account'>
-      <p>Darkmode</p>
-      <label class="switch">
-        <input type="checkbox" checked={theme === "dark" ? true : false} onChange={() => {
-          if (theme === "dark") setThemeChange("white");
-          else setThemeChange("dark");
-        }}/>
-        <span class="slider round"></span>
-      </label>
+    <div className=''>
+
+      <div className='todo-list-account-darkmode'>
+        <p>Darkmode</p>
+        <label className="switch">
+          <input type="checkbox" checked={theme === "dark" ? true : false} onChange={() => {
+            if (theme === "dark") setThemeChange("white");
+            else setThemeChange("dark");
+          }}/>
+          <span className="slider round"></span>
+        </label>
+      </div>
     </div>
   )
 }

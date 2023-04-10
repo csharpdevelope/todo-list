@@ -1,0 +1,18 @@
+.todo-list-modal {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    background-color: var(--modal-background-color-dark);
+    opacity: 0.5;
+    z-index: 11;
+}
+
+.todo-list-modal-form {
+    color: white;
+    opacity: 1;
+}

@@ -9,14 +9,13 @@ const Menu = () => {
 
   const location = useLocation();
   const { pathname } = location;
-  const { theme } = useContext(TaskContext);
-  console.log(pathname);
+  const { theme, setShowModal } = useContext(TaskContext);
 
   return (
     <div className='todo-list-menu'>
       <div className='todo-list-menu-logo'>
         <h2 className={theme === 'dark' ? "todo-list-menu-logo-dark" : ""}>TO-DO LIST</h2>
-        <CustomButton  name={"Add new task"} onClick={() => console.log("Hello world")} />
+        <CustomButton  name={"Add new task"} onClick={() => setShowModal(true)} />
       </div>
         
       {/* routes */}
@@ -26,9 +25,8 @@ const Menu = () => {
               <Link 
                 key={route.id} 
                 to={route.url} 
-                className={`todo-list-routes-root ${
-                  (pathname === route.url ? "root-active-dark" : "roout-active-white") &&
-                  (theme === "dark" ? "todo-list-routes-root-dark" : "todo-list-routes-root-white")} `}>
+                className={`todo-list-routes-root ${(theme === "dark" ? "todo-list-routes-root-dark" : "todo-list-routes-root-white")} 
+                ${(pathname === route.url ? (theme === "dark" ? "root-active-dark" : "root-active-white") : "")}`}>
                 {route.name}
               </Link>
           )
