@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
+import {routes} from '../../routes';
+import { TaskContext } from '../../store/TaskContext';
+import { ButtonInput, TaskComponent } from '../../components';
 import "./dashboard.scss";
-import TaskComponent from '../../components/task/TaskComponent';
 
 const Dashboard = () => {
-
   
+  const path = useLocation();
+  const {pathname} = path;
+  const { theme } = useContext(TaskContext);
 
   const tasks = [
     {
@@ -49,12 +54,16 @@ const Dashboard = () => {
     },
   ]
   return (
-    <div>
-
+    <div className='todo-list-dashboard'>
+      <div className={`todo-list-dashboard-header ${theme === 'dark' ? 'todo-list-dashboard-header-dark' : 'todo-list-dashboard-header-white'}`}>
+        <span>{routes.map(route => route.url === pathname ? route.name : "")}</span>
+        <span>({tasks.length} tasks)</span>
+      </div>
       <div className='todo-list-tasks'>
         {tasks.map(task => {
           return <TaskComponent key={task.id} task={task} />
         })}
+        <ButtonInput />
       </div>
     </div>
   )

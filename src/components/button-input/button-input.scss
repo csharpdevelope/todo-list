@@ -1,0 +1,18 @@
+.todo-list-add-button-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed var(--text-color);
+    border-radius: 10px;
+    color: var(--text-color);
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--add-button-input);
+        color: white;
+    }
+}
+
+.todo-list-add-button-input-dark:hover {
+    background-color: var(--add-button-input-dark);
+}

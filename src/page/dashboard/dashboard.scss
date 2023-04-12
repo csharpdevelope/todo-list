@@ -1,3 +1,25 @@
+.todo-list-dashboard {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.todo-list-dashboard-header {
+    font-size: 2rem;
+
+    span {
+        margin-left: 10px;
+    }
+}
+
+.todo-list-dashboard-header-dark {
+    color: white;
+}
+
+.todo-list-dashboard-header-white{
+    color: var(--text-color);
+}
+
 .todo-list-tasks {
     display: grid;
     grid-template-columns: auto auto auto auto;
