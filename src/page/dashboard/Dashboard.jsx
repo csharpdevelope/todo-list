@@ -1,8 +1,11 @@
 import React from 'react';
-import moment from 'moment';
 import "./dashboard.scss";
+import TaskComponent from '../../components/task/TaskComponent';
 
 const Dashboard = () => {
+
+  
+
   const tasks = [
     {
       id: 1,
@@ -28,18 +31,30 @@ const Dashboard = () => {
       favourite: false,
       completed: true,
     },
+    {
+      id: 4,
+      name: 'Task 4',
+      description: "This is the description for this week",
+      date: Date.now(),
+      favourite: true,
+      completed: true,
+    },
+    {
+      id: 5,
+      name: 'Task 5',
+      description: "This is the description for this week",
+      date: Date.now(),
+      favourite: false,
+      completed: false,
+    },
   ]
   return (
     <div>
-      <div className='todo-list-task'>
-        <h4>Task 1</h4>
-        <p>This is the a week</p>
-        <p>{moment(Date.now()).format("DD/MM/YYYY")}</p>
-        <hr />
-        <div>
-          <p>completed</p>
-          <div>edit</div>
-        </div>
+
+      <div className='todo-list-tasks'>
+        {tasks.map(task => {
+          return <TaskComponent key={task.id} task={task} />
+        })}
       </div>
     </div>
   )
