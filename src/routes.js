@@ -1,11 +1,12 @@
-import { Dashboard, Important } from "./page";
+import { Completed, Dashboard, Important, UnCompleted } from "./page";
+import TodatTask from "./page/important/TodatTask";
 
 export const routes = [
     {
         id: 1,
         name: "Today's task",
         url: "/today",
-        component: <Important />
+        component: <TodatTask />
     },
     {
         id: 2,
@@ -22,11 +23,13 @@ export const routes = [
     {
         id: 4,
         name: "Task done",
-        url: "/completed"
+        url: "/completed",
+        component: <Completed />
     },
     {
         id: 5,
-        name: "Uncomplete",
-        url: "/uncompleted"
+        name: "Unfinished tasks",
+        url: "/uncompleted",
+        component: <UnCompleted />
     }
 ];

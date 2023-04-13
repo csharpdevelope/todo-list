@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import './button-input.scss';
 import { TaskContext } from '../../store/TaskContext';
+import './button-input.scss';
 
 const ButtonInput = () => {
 

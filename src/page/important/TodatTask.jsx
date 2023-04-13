@@ -2,12 +2,12 @@ import React from 'react'
 import { Tasks } from '../../components';
 import { tasks } from '../../data/TasksData';
 
-const Important = () => {
+const TodatTask = () => {
   return (
     <div>
-      <Tasks tasks={tasks.filter(task => task.favourite)} />
+        <Tasks tasks={tasks.filter(task => task.date.getDate() === new Date().getDate())} />
     </div>
   )
 }
 
-export default Important;
+export default TodatTask;

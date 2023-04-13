@@ -2,12 +2,10 @@ import React from 'react'
 import { Tasks } from '../../components';
 import { tasks } from '../../data/TasksData';
 
-const Important = () => {
+const UnCompleted = () => {
   return (
-    <div>
-      <Tasks tasks={tasks.filter(task => task.favourite)} />
-    </div>
+    <div><Tasks tasks={tasks.filter(task => !task.completed)} /></div>
   )
 }
 
-export default Important;
+export default UnCompleted;

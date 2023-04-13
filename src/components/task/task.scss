@@ -3,6 +3,24 @@
     flex-direction: column;
     padding: 18px;
     border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--active-component);
+        color: white;
+
+        .todo-list-task-description {
+            color: white;
+        } 
+
+        .todo-task-list-border {
+            border-color: white;
+        }
+
+        .todo-list-task-footer-action p {
+            color: white;
+        }
+    }
 }
 
 .todo-list-task-dark {

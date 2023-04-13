@@ -1,0 +1,42 @@
+export const tasks = [
+    {
+      id: 1,
+      name: 'Task 1',
+      description: "This is the description for this week",
+      date: new Date(),
+      favourite: false,
+      completed: false,
+    },
+    {
+      id: 2,
+      name: 'Task 2',
+      description: "This is the description for this week",
+      date: new Date("05-Jul-2021"),
+      favourite: true,
+      completed: false,
+    },
+    {
+      id: 3,
+      name: 'Task 3',
+      description: "This is the description for this week",
+      date: new Date(),
+      favourite: false,
+      completed: true,
+    },
+    {
+      id: 4,
+      name: 'Task 4',
+      description: "This is the description for this week",
+      date: new Date("10-Jul-2022"),
+      favourite: true,
+      completed: true,
+    },
+    {
+      id: 5,
+      name: 'Task 5',
+      description: "This is the description for this week",
+      date: new Date(),
+      favourite: false,
+      completed: false,
+    },
+  ]
