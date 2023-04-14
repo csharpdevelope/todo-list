@@ -6,7 +6,7 @@ import './task.scss';
 
 const TaskComponent = ({ task }) => {
 
-  const { theme } = useContext(TaskContext);
+  const { theme, deleteItemOfIds } = useContext(TaskContext);
 
   return (
     <>
@@ -21,7 +21,7 @@ const TaskComponent = ({ task }) => {
                   <p>
                       {!task.favourite ? <StarOutlined onClick={() => console.log("no-favoruite")} /> : 
                                           <StarFilled onClick={() => console.log("favourite")} className='todo-list-favorite-task' /> }</p>
-                  <p><DeleteFilled /></p>
+                  <p><DeleteFilled onClick={() => deleteItemOfIds(task.id)} /></p>
               </div>
           </div>
       </div>

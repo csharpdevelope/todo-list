@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Tasks } from '../../components';
-import { tasks } from '../../data/TasksData';
+import { TaskContext } from '../../store/TaskContext';
 
 const UnCompleted = () => {
+  const {data} = useContext(TaskContext);
   return (
-    <div><Tasks tasks={tasks.filter(task => !task.completed)} /></div>
+    <div><Tasks tasks={data.filter(task => !task.completed)} /></div>
   )
 }
 

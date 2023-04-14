@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Tasks } from '../../components';
-import { tasks } from '../../data/TasksData';
+import { TaskContext } from '../../store/TaskContext';
 
 const Important = () => {
+  const {data} = useContext(TaskContext);
   return (
     <div>
-      <Tasks tasks={tasks.filter(task => task.favourite)} />
+      <Tasks tasks={data.filter(task => task.favourite)} />
     </div>
   )
 }

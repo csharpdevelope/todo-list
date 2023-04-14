@@ -6,7 +6,7 @@ import { TaskContext } from '../../store/TaskContext';
 import "./tasks.scss";
 import { useLocation } from 'react-router-dom';
 
-const Tasks = ({tasks}) => {
+const Tasks = ({ tasks }) => {
     const path = useLocation();
     const { theme } = useContext(TaskContext);
     const {pathname} = path;
@@ -18,7 +18,7 @@ const Tasks = ({tasks}) => {
         <span>({tasks.length} tasks)</span>
       </div>
       <div className='todo-list-tasks'>
-        {tasks.map(task => {
+        {tasks?.map(task => {
           return <TaskComponent key={task.id} task={task} />
         })}
         <ButtonInput />

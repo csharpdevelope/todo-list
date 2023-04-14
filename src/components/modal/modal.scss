@@ -5,14 +5,80 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     top: 0;
     left: 0;
-    background-color: var(--modal-background-color-dark);
-    opacity: 0.5;
-    z-index: 11;
+    background-color: rgba(#1c2437, 0.6) ;
+    z-index: 10;
 }
 
 .todo-list-modal-form {
-    color: white;
     opacity: 1;
+}
+
+.todo-list-modal-container {
+    width: 400px;
+    background-color: white;
+    padding: 15px;
+    margin-top: -50px;
+    opacity: 1;
+    z-index: 100;
+}
+
+.todo-list-modal-exit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+        display: flex;
+        text-align: center;
+        color: var(--text-color);
+    }
+}
+
+.todo-list-modal-form {
+    width: 100%;
+}
+
+.todo-list-modal-input {
+    width: 90%;
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    outline: none;
+    margin: 10px 0;
+
+    &:hover, &:active, &:focus {
+        border-color: var(--active-component);
+    }
+}
+
+.todo-list-modal-textarea {
+    height: 100px;
+}
+
+.todo-list-modal-is-favorite {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    color: var(--text-color);
+
+    p {
+        margin-right: 20px;
+    }
+}
+
+.todo-list-modal-button {
+    display: flex;
+    
+    button {
+        width: 100%;
+    }
+}
+
+.todo-list-modal-check {
+
 }

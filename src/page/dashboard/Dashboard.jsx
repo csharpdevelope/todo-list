@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Tasks } from '../../components';
 import "./dashboard.scss";
-import { tasks } from '../../data/TasksData';
+import { TaskContext } from '../../store/TaskContext';
 
 const Dashboard = () => {
   
+  const {data} = useContext(TaskContext);
+
   return (
     <div>
-      <Tasks tasks={tasks} />
+      <Tasks tasks={data} />
     </div>
   )
 }
