@@ -5,6 +5,7 @@ export const TaskContext = React.createContext();
 const TaskProvider = ({ children }) => {
     const [theme, setTheme] = useState(localStorage.getItem("theme"));
     const [isShowModal, setShowModal] = useState(false);
+    const [isDeletedModal, setDeletedModal] = useState(false);
     var data = JSON.parse(localStorage.getItem("data"));
 
     if (localStorage.getItem("data") == null) {
@@ -12,8 +13,12 @@ const TaskProvider = ({ children }) => {
     }
 
     const addNewTask = (task) => {
-        console.log("Context: " + task.name);
-        const newId = data[(data.length - 1)].id;
+        var newId;
+        if (data.length !== 0)
+            newId = data[(data.length - 1)].id;
+        else 
+            newId = 0;
+
         const newData = {
             id: newId + 1,
             name: task.name,
@@ -23,15 +28,14 @@ const TaskProvider = ({ children }) => {
             date: new Date()
         };
         data.push(newData);
-        console.log(data);
         setShowModal(false);
         localStorage.setItem("data", JSON.stringify(data));
     }
 
     const deleteItemOfIds = (id) => {
+        setDeletedModal(false);
         const tasks = data.filter(task => task.id !== id);
         localStorage.setItem("data", JSON.stringify(tasks));
-        data = JSON.parse(localStorage.getItem("data"));
     }
 
     if (localStorage.getItem("theme") === null) {
@@ -43,6 +47,8 @@ const TaskProvider = ({ children }) => {
     }
 
     return <TaskContext.Provider value={{
+        isDeletedModal,
+        setDeletedModal,
         data, 
         theme,
         setThemeChange,

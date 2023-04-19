@@ -8,7 +8,7 @@
     flex-direction: column;
     top: 0;
     left: 0;
-    background-color: rgba(#1c2437, 0.6) ;
+    background-color: rgba(#1c2437, 0.6);
     z-index: 10;
 }
 
@@ -79,6 +79,59 @@
     }
 }
 
-.todo-list-modal-check {
+.todo-list-delete-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(#1c2437, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    z-index: 10;
+}
 
+.todo-list-delete-modal-content {
+    width: 400px;
+    background-color: white;
+    padding: 10px 20px;
+}
+
+.todo-list-delete-modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px dashed var(--text-color);
+}
+
+.todo-list-delete-modal-body {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.todo-list-delete-modal-footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    button {
+        width: auto;
+        margin: 10px 5px;
+        color: white;
+        &:nth-child(1) {
+            background-color: red;
+        }
+
+        &:nth-child(2) {
+            background-color: var(--text-color);
+        }
+    }
 }

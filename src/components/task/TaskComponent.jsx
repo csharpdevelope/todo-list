@@ -3,13 +3,15 @@ import { DeleteFilled, StarFilled, StarOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import { TaskContext } from '../../store/TaskContext';
 import './task.scss';
+import DeleteModal from '../modal/DeleteModal';
 
 const TaskComponent = ({ task }) => {
 
-  const { theme, deleteItemOfIds } = useContext(TaskContext);
+  const { theme, setDeletedModal, isDeletedModal } = useContext(TaskContext);
 
   return (
     <>
+      
       <div className={`todo-list-task ${theme === "dark" ? 'todo-list-task-dark' : 'todo-list-task-white'}`}>
           <h3>{task.name}</h3>
           <p className={`todo-list-task-description`}>{task.description}</p>
@@ -21,10 +23,11 @@ const TaskComponent = ({ task }) => {
                   <p>
                       {!task.favourite ? <StarOutlined onClick={() => console.log("no-favoruite")} /> : 
                                           <StarFilled onClick={() => console.log("favourite")} className='todo-list-favorite-task' /> }</p>
-                  <p><DeleteFilled onClick={() => deleteItemOfIds(task.id)} /></p>
+                  <p><DeleteFilled onClick={() => setDeletedModal(true)} /></p>
               </div>
           </div>
       </div>
+      {isDeletedModal ? <DeleteModal id={task.id} /> : null}
     </>
   )
 }
