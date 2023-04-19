@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { DeleteFilled, StarFilled, StarOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import { TaskContext } from '../../store/TaskContext';
@@ -6,12 +6,12 @@ import './task.scss';
 import DeleteModal from '../modal/DeleteModal';
 
 const TaskComponent = ({ task }) => {
-
-  const { theme, setDeletedModal, isDeletedModal } = useContext(TaskContext);
+  const [id, setId] = useState(null);
+  const { theme, setDeletedModal } = useContext(TaskContext);
 
   return (
     <>
-      
+      <DeleteModal id={id} />
       <div className={`todo-list-task ${theme === "dark" ? 'todo-list-task-dark' : 'todo-list-task-white'}`}>
           <h3>{task.name}</h3>
           <p className={`todo-list-task-description`}>{task.description}</p>
@@ -23,11 +23,15 @@ const TaskComponent = ({ task }) => {
                   <p>
                       {!task.favourite ? <StarOutlined onClick={() => console.log("no-favoruite")} /> : 
                                           <StarFilled onClick={() => console.log("favourite")} className='todo-list-favorite-task' /> }</p>
-                  <p><DeleteFilled onClick={() => setDeletedModal(true)} /></p>
+                  <p>
+                    <DeleteFilled onClick={() => {
+                      setId(task.id);
+                      setDeletedModal(true);
+                    }} />
+                  </p>
               </div>
           </div>
       </div>
-      {isDeletedModal ? <DeleteModal id={task.id} /> : null}
     </>
   )
 }
