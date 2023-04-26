@@ -10,6 +10,9 @@ const Tasks = ({ tasks }) => {
     const path = useLocation();
     const { theme } = useContext(TaskContext);
     const {pathname} = path;
+    routes.forEach(route => {
+      if (route.url === pathname) document.title = route.name;
+    })
 
   return (
     <div className='todo-list-dashboard'>

@@ -5,7 +5,6 @@ import { TaskContext } from '../../store/TaskContext';
 const DeleteModal = ({id}) => {
 
   const { isDeletedModal, setDeletedModal, deleteItemOfIds, data } = useContext(TaskContext);
-  console.log(id);
   const task = data.find(t => t.id === id);
 
   if (isDeletedModal && id !== null)

@@ -7,4 +7,5 @@ export {default as AddModal} from './modal/AddModal';
 export {default as TaskComponent} from './task/TaskComponent';
 export {default as ButtonInput} from './button-input/ButtonInput';
 export {default as Tasks} from './tasks/Tasks';
-export {default as DeleteModal} from './modal/DeleteModal'
+export {default as DeleteModal} from './modal/DeleteModal';
+export {default as UpdateModal} from './modal/UpdateModal';

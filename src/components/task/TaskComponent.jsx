@@ -4,15 +4,21 @@ import moment from 'moment';
 import { TaskContext } from '../../store/TaskContext';
 import './task.scss';
 import DeleteModal from '../modal/DeleteModal';
+import UpdateModal from '../modal/UpdateModal';
 
 const TaskComponent = ({ task }) => {
   const [id, setId] = useState(null);
-  const { theme, setDeletedModal } = useContext(TaskContext);
+  const { theme, setDeletedModal, setUpdateModal } = useContext(TaskContext);
 
   return (
     <>
       <DeleteModal id={id} />
-      <div className={`todo-list-task ${theme === "dark" ? 'todo-list-task-dark' : 'todo-list-task-white'}`}>
+      <UpdateModal id={id} />
+      <div className={`todo-list-task ${theme === "dark" ? 'todo-list-task-dark' : 'todo-list-task-white'}`} 
+        onClick={() => {
+          setId(task.id);
+          setUpdateModal(true)
+      ;}}>
           <h3>{task.name}</h3>
           <p className={`todo-list-task-description`}>{task.description}</p>
           <p className='todo-list-task-date'>{moment(task.date).format("DD/MM/YYYY")}</p>
@@ -23,11 +29,12 @@ const TaskComponent = ({ task }) => {
                   <p>
                       {!task.favourite ? <StarOutlined onClick={() => console.log("no-favoruite")} /> : 
                                           <StarFilled onClick={() => console.log("favourite")} className='todo-list-favorite-task' /> }</p>
-                  <p>
-                    <DeleteFilled onClick={() => {
+                  <p onClick={() => {
+                      setUpdateModal(false);
                       setId(task.id);
                       setDeletedModal(true);
-                    }} />
+                    }}>
+                    <DeleteFilled />
                   </p>
               </div>
           </div>

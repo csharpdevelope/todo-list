@@ -6,6 +6,7 @@ const TaskProvider = ({ children }) => {
     const [theme, setTheme] = useState(localStorage.getItem("theme"));
     const [isShowModal, setShowModal] = useState(false);
     const [isDeletedModal, setDeletedModal] = useState(false);
+    const [isUpdateModal, setUpdateModal] = useState(false);
     var data = JSON.parse(localStorage.getItem("data"));
 
     if (localStorage.getItem("data") == null) {
@@ -32,6 +33,12 @@ const TaskProvider = ({ children }) => {
         localStorage.setItem("data", JSON.stringify(data));
     }
 
+    const getTask = (id) => {
+        if (id === null) return null;
+        const tasks = data.filter(task => task.id === id);
+        return tasks;
+    }
+
     const deleteItemOfIds = (id) => {
         setDeletedModal(false);
         const tasks = data.filter(task => task.id !== id);
@@ -49,13 +56,16 @@ const TaskProvider = ({ children }) => {
     return <TaskContext.Provider value={{
         isDeletedModal,
         setDeletedModal,
+        isUpdateModal,
+        setUpdateModal,
         data, 
         theme,
         setThemeChange,
         isShowModal,
         setShowModal,
         addNewTask,
-        deleteItemOfIds
+        deleteItemOfIds,
+        getTask
     }}>{children}</TaskContext.Provider>
 }
 export default TaskProvider;

@@ -71,12 +71,35 @@
     }
 }
 
+.todo-list-modal-is-favorite-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: var(--text-color);
+
+    div {
+        display: flex;
+    }
+
+    p {
+        margin-right: 20px;
+    }
+}
+
 .todo-list-modal-button {
     display: flex;
     
     button {
         width: 100%;
     }
+}
+
+.todo-list-modal-button-2 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .todo-list-delete-modal {
@@ -133,5 +156,17 @@
         &:nth-child(2) {
             background-color: var(--text-color);
         }
+    }
+}
+
+.todo-list-modal-button-2 {
+    width: 100%;
+    display: flex;
+    justify-items: flex-end;
+    align-items: center;
+
+    .cancel-button {
+        margin: 10px;
+        background-color: var(--text-color);
     }
 }
